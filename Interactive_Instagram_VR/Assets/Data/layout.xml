@@ -1,0 +1,9 @@
+<graphml xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://www.yworks.com/xml/schema/graphml.html/1.0/ygraphml.xsd" xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:x="http://www.yworks.com/xml/yfiles-common/markup/2.0" xmlns:y="http://www.yworks.com/xml/yfiles-common/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:yjs="http://www.yworks.com/xml/yfiles-for-html/1.0/xaml">
+<graph id="G" edgedefault="directed">
+<node id="node_1" x="3744.53" y="4253.76" z="6190.83" group="1" name="156.145.220.128/25" status="Okay" type="PseudoNode" />
+<node id="node_2" x="3988.03" y="3771.95" z="5946.03" group="1" name="156.145.210.76/30" status="Okay" type="PseudoNode" />
+<node id="node_3" x="3950.59" y="4165.08" z="6089.44" group="1" name="156.145.210.80/30" status="Okay" type="PseudoNode" />
+<node id="node_4" x="3971.37" y="3973.48" z="5978.97" group="1" name="156.145.210.84/30" status="Okay" type="PseudoNode" />
+<node id="node_5" x="3950.27" y="4085.77" z="6067.88" group="1" name="173.24.255.189" status="Okay" type="Router" />
+</graph>
+</graphml>
