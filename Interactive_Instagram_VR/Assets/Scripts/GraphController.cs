@@ -271,7 +271,7 @@ public class GraphController : MonoBehaviour {
             nodeCount++;
             gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
-            GameObject debugObj = nodeCreated.transform.FindChild("debugRepulseObj").gameObject;
+            GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
             debugObjects.Add(debugObj);
             debugObj.SetActive(false);
 
@@ -302,7 +302,7 @@ public class GraphController : MonoBehaviour {
             nodeCount++;
             gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
-            GameObject debugObj = nodeCreated.transform.FindChild("debugRepulseObj").gameObject;
+            GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
             debugObjects.Add(debugObj);
             debugObj.SetActive(false);
 
@@ -339,7 +339,7 @@ public class GraphController : MonoBehaviour {
             nodeCount++;
             gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
-            GameObject debugObj = nodeCreated.transform.FindChild("debugRepulseObj").gameObject;
+            GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
             debugObjects.Add(debugObj);
             debugObj.SetActive(false);
 
@@ -502,7 +502,7 @@ public class GraphController : MonoBehaviour {
 					nodeCount++;
 					gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
 
-					GameObject debugObj = nodeCreated.transform.FindChild("debugRepulseObj").gameObject;
+					GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
 					debugObjects.Add(debugObj);
 					debugObj.SetActive(false);
 
