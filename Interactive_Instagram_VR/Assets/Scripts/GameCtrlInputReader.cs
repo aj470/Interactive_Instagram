@@ -79,7 +79,7 @@ public class GameCtrlInputReader : MonoBehaviour {
 
                 //create nodes
                 gameCtrlUI.PanelStatusText.text = "Loading: " + xmlNode.Attributes["id"].Value;
-                if (xmlNode.Name == "node" && myNodeCount < 250)
+				if (xmlNode.Name == "node" && myNodeCount<1000)
                 {
                     myNodeCount++;
                     nodesList.Add(new nodeListObj
@@ -94,7 +94,7 @@ public class GameCtrlInputReader : MonoBehaviour {
                 }
 
                 //create links
-                if (xmlNode.Name == "edge" && myLinkCount < 250)
+				if (xmlNode.Name == "edge" && myLinkCount < 10000)
                 {
                     myLinkCount++;
                     linksList.Add(new linkListObj

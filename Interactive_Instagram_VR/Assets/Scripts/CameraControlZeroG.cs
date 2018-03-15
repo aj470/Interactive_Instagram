@@ -48,21 +48,20 @@ public class CameraControlZeroG : MonoBehaviour {
 
 		move.y = 0;
 		if (Input.GetKey ("w")) {
-			transform.position += Vector3.forward * speed * Time.deltaTime;		
+			transform.Translate(Vector3.forward * speed * Time.deltaTime);
 		}
 
 		if (Input.GetKey ("s")) {
-			transform.position += Vector3.back * speed * Time.deltaTime;
+			transform.Translate(Vector3.back * speed * Time.deltaTime);
 		}
 
 		if (Input.GetKey ("a")) {
-				transform.position += Vector3.left * speed * Time.deltaTime;		
+			transform.Translate(Vector3.left * speed * Time.deltaTime);
 		}
 
 		if (Input.GetKey ("d")) {
-				transform.position += Vector3.right * speed * Time.deltaTime;
+			transform.Translate(Vector3.right * speed * Time.deltaTime);
 		}
- 
 	//	Vector3 moveforward = Input.GetAxis ("Fire4") * Vector3.forward * speed * Time.deltaTime;
 	//	Vector3 movebackward = Input.GetAxis ("Fire5") * Vector3.back * speed * Time.deltaTime;
 	//	Vector3 Movement = transform.TransformDirection (moveforward + movebackward);
