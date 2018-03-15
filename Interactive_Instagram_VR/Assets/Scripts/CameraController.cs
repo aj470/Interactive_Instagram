@@ -42,6 +42,8 @@ public class CameraController : MonoBehaviour {
 			playerRot = Quaternion.LookRotation (lookAtTarget);
 			moving = true;
 		}
+
+
 	}
 
 	void Move()

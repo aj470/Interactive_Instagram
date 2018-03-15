@@ -14,13 +14,13 @@ public class GraphController : MonoBehaviour {
 	private static Clickstart start;
 
     [SerializeField]
-    private bool allStatic = false;
-    [SerializeField]
-    private bool paintMode = false;
+    private bool allStatic = true;
+    //[SerializeField]
+    //private bool paintMode = false;
     [SerializeField]
     private bool repulseActive = true;
-    [SerializeField]
-    private bool debugRepulse = false;
+   // [SerializeField]
+   // private bool debugRepulse = false;
 
     [SerializeField]
     private GameObject nodePrefabBullet;
@@ -60,17 +60,17 @@ public class GraphController : MonoBehaviour {
         }
     }
 
-    public bool PaintMode
-    {
-        get
-        {
-            return paintMode;
-        }
-        set
-        {
-            paintMode = value;
-        }
-    }
+//    public bool PaintMode
+//    {
+//        get
+//        {
+//            return paintMode;
+//        }
+//        set
+//        {
+//            paintMode = value;
+//        }
+//    }
 
     public bool RepulseActive
     {
@@ -84,21 +84,21 @@ public class GraphController : MonoBehaviour {
         }
     }
 
-    public bool DebugRepulse
-    {
-        get
-        {
-            return debugRepulse;
-        }
-        set
-        {
-            if (debugRepulse != value)
-            {
-                debugRepulse = value;
-                DebugAllNodes();
-            }
-        }
-    }
+//    public bool DebugRepulse
+//    {
+//        get
+//        {
+//            return debugRepulse;
+//        }
+//        set
+//        {
+//            if (debugRepulse != value)
+//            {
+//                debugRepulse = value;
+//                DebugAllNodes();
+//            }
+//        }
+//    }
 
     public float GlobalGravityBullet
     {
@@ -196,28 +196,28 @@ public class GraphController : MonoBehaviour {
         }
     }
 
-    void DebugAllNodes()
-    {
-        if (DebugRepulse)
-        {
-            foreach (GameObject debugObj in debugObjects)
-            {
-                debugObj.SetActive(true);
-                if (debugObj.name == "debugRepulseObj")
-                {
-                    float sphereDiam = gameCtrlHelper.GetRepulseSphereDiam();
-                    debugObj.transform.localScale = new Vector3(sphereDiam, sphereDiam, sphereDiam);
-                }
-            }
-        }
-        else
-        {
-            foreach (GameObject debugObj in debugObjects)
-            {
-                debugObj.SetActive(false);
-            }
-        }
-    }
+//    void DebugAllNodes()
+//    {
+//        if (DebugRepulse)
+//        {
+//            foreach (GameObject debugObj in debugObjects)
+//            {
+//                debugObj.SetActive(true);
+//                if (debugObj.name == "debugRepulseObj")
+//                {
+//                    float sphereDiam = gameCtrlHelper.GetRepulseSphereDiam();
+//                    debugObj.transform.localScale = new Vector3(sphereDiam, sphereDiam, sphereDiam);
+//                }
+//            }
+//        }
+//        else
+//        {
+//            foreach (GameObject debugObj in debugObjects)
+//            {
+//                debugObj.SetActive(false);
+//            }
+//        }
+//    }
 
     public void ResetWorld()
     {

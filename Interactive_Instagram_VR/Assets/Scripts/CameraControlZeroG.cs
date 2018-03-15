@@ -37,21 +37,30 @@ public class CameraControlZeroG : MonoBehaviour {
 
     void Update () {
 		
-		move.x = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
-		move.z = Input.GetAxis ("Vertical") * speed * Time.deltaTime;
+	//	move.x = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
+	//	move.z = Input.GetAxis ("Vertical") * speed * Time.deltaTime;
 
-		move.x = Input.GetAxis ("Mouse X") * speed * Time.deltaTime;
-		move.z = Input.GetAxis ("Mouse Y") * speed * Time.deltaTime;
+	//	move.x = Input.GetAxis ("Mouse X") * speed * Time.deltaTime;
+	//	move.z = Input.GetAxis ("Mouse Y") * speed * Time.deltaTime;
 
 		 
 
 
 		move.y = 0;
 		if (Input.GetKey ("w")) {
-			transform.position += Vector3.forward * speed * Time.deltaTime;		}
+			transform.position += Vector3.forward * speed * Time.deltaTime;		
+		}
 
 		if (Input.GetKey ("s")) {
 			transform.position += Vector3.back * speed * Time.deltaTime;
+		}
+
+		if (Input.GetKey ("a")) {
+				transform.position += Vector3.left * speed * Time.deltaTime;		
+		}
+
+		if (Input.GetKey ("d")) {
+				transform.position += Vector3.right * speed * Time.deltaTime;
 		}
  
 	//	Vector3 moveforward = Input.GetAxis ("Fire4") * Vector3.forward * speed * Time.deltaTime;

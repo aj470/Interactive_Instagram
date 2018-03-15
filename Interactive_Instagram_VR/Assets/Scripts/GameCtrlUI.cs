@@ -61,33 +61,33 @@ public class GameCtrlUI : MonoBehaviour {
         }
     }
 
-    public void TogglePaintMode(Toggle tgl)
-    {
-        if (tgl.isOn)
-        {
-            graphControl.PaintMode = true;
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": PaintMode active");
-        }
-        else
-        {
-            graphControl.PaintMode = false;
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": PaintMode inactivate");
-        }
-    }
+//    public void TogglePaintMode(Toggle tgl)
+//    {
+//        if (tgl.isOn)
+//        {
+//            graphControl.PaintMode = true;
+//            if (verbose)
+//                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": PaintMode active");
+//        }
+//        else
+//        {
+//            graphControl.PaintMode = false;
+//            if (verbose)
+//                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": PaintMode inactivate");
+//        }
+//    }
 
     public void ToggleAllStatic(Toggle tgl)
     {
         if (tgl.isOn)
         {
-            graphControl.AllStatic = true;
+			graphControl.AllStatic = true;
             if (verbose)
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": AllStatic on");
         }
         else
         {
-            graphControl.AllStatic = false;
+			graphControl.AllStatic = false;
             if (verbose)
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": AllStatic off");
         }
@@ -97,33 +97,33 @@ public class GameCtrlUI : MonoBehaviour {
     {
         if (tgl.isOn)
         {
-            graphControl.RepulseActive = true;
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Repulse on");
-        }
-        else
-        {
             graphControl.RepulseActive = false;
             if (verbose)
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Repulse off");
         }
-    }
-
-    public void ToggleDebugRepulse(Toggle tgl)
-    {
-        if (tgl.isOn)
-        {
-            graphControl.DebugRepulse = true;
-            if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": DebugRepulse on");
-        }
         else
         {
-            graphControl.DebugRepulse = false;
+            graphControl.RepulseActive = true;
             if (verbose)
-                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": DebugRepulse off");
+                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Repulse on");
         }
     }
+
+//    public void ToggleDebugRepulse(Toggle tgl)
+//    {
+//        if (tgl.isOn)
+//        {
+//            graphControl.DebugRepulse = true;
+//            if (verbose)
+//                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": DebugRepulse on");
+//        }
+//        else
+//        {
+//            graphControl.DebugRepulse = false;
+//            if (verbose)
+//                Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": DebugRepulse off");
+//        }
+//    }
 
     internal bool PanelIsPointeroverPanel(Vector3 pointerCoords)
     {
