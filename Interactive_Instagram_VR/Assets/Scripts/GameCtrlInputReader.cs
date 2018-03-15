@@ -12,7 +12,8 @@ public class GameCtrlInputReader : MonoBehaviour {
     private static GraphController graphControl;
     private static GameCtrlUI gameCtrlUI;
 
-    private class nodeListObj
+
+    public class nodeListObj
     {
         public string id { get; set; }
         public string name { get; set; }
@@ -21,9 +22,9 @@ public class GameCtrlInputReader : MonoBehaviour {
         public float y { get; set; }
         public float z { get; set; }
     }
-    private List<nodeListObj> nodesList = new List<nodeListObj>();
+    public List<nodeListObj> nodesList = new List<nodeListObj>();
 
-    private class linkListObj
+    public class linkListObj
     {
         public string id { get; set; }
         public string name { get; set; }
@@ -150,4 +151,5 @@ public class GameCtrlInputReader : MonoBehaviour {
         gameCtrlUI = GetComponent<GameCtrlUI>();
         //gameCtrlHelper gameCtrlHelper = GetComponent<gameCtrlHelper>();
     }
+		
 }

@@ -7,8 +7,8 @@ public class CameraController : MonoBehaviour {
 	Vector3 targetPosition;
 	Vector3 lookAtTarget;
 	Quaternion playerRot;
-	float rotSpeed = 5;
-	float speed = 10;
+	float rotSpeed = 10;
+	float speed = 20;
 	bool moving = false;
 
 
@@ -33,7 +33,8 @@ public class CameraController : MonoBehaviour {
 
 		if (Physics.Raycast (ray, out hit, 1000)) 
 		{
-			targetPosition = hit.point;
+			Vector3 newhit = new Vector3(hit.point.x,hit.point.y, hit.point.z - 10 );
+			targetPosition = newhit;
 			//this.transform.LookAt (targetPosition);
 			lookAtTarget = new Vector3 (targetPosition.x - transform.position.x,
 				transform.position.y, 
@@ -52,6 +53,7 @@ public class CameraController : MonoBehaviour {
 									 			targetPosition,
 												speed * Time.deltaTime); 
 		if (transform.position == targetPosition)
+			 
 			moving = false;
 	}
 }

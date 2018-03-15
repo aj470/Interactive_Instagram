@@ -24,7 +24,7 @@ using System.Collections;
 
 public class CameraControlZeroG : MonoBehaviour {
 
-	public float speed = 12f;
+	public float speed = 6.0f;
     public Text movementSpeed;
 	private CharacterController myController;
  
@@ -37,38 +37,27 @@ public class CameraControlZeroG : MonoBehaviour {
 
     void Update () {
 		
-		//move.x = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
-		//move.z = Input.GetAxis ("Vertical") * speed * Time.deltaTime;
+		move.x = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
+		move.z = Input.GetAxis ("Vertical") * speed * Time.deltaTime;
 
-		//move.x = Input.GetAxis ("Mouse X") * speed * Time.deltaTime;
-		//move.z = Input.GetAxis ("Mouse Y") * speed * Time.deltaTime;
+		move.x = Input.GetAxis ("Mouse X") * speed * Time.deltaTime;
+		move.z = Input.GetAxis ("Mouse Y") * speed * Time.deltaTime;
 
 		 
 
 
 		move.y = 0;
 		if (Input.GetKey ("w")) {
-			move.y = speed * Time.deltaTime;
-		}
+			transform.position += Vector3.forward * speed * Time.deltaTime;		}
 
 		if (Input.GetKey ("s")) {
-			move.y = -speed * Time.deltaTime;
+			transform.position += Vector3.back * speed * Time.deltaTime;
 		}
-
-		if (Input.GetKey ("a")) {
-			move.x = -speed * Time.deltaTime;
-		}
-
-		if (Input.GetKey ("d")) {
-			move.x = speed * Time.deltaTime;
-		}
-
-	
-
-		//Vector3 moveforward = Input.GetAxis ("Fire4") * Vector3.forward * speed * Time.deltaTime;
-		//Vector3 movebackward = Input.GetAxis ("Fire5") * Vector3.back * speed * Time.deltaTime;
-		//Vector3 Movement = transform.TransformDirection (moveforward + movebackward);
-//		Debug.Log ("Movement " + Movement);
+ 
+	//	Vector3 moveforward = Input.GetAxis ("Fire4") * Vector3.forward * speed * Time.deltaTime;
+	//	Vector3 movebackward = Input.GetAxis ("Fire5") * Vector3.back * speed * Time.deltaTime;
+	//	Vector3 Movement = transform.TransformDirection (moveforward + movebackward);
+	//	Debug.Log ("Movement " + Movement);
  
 	
 

@@ -11,6 +11,7 @@ public class GraphController : MonoBehaviour {
     private static GameController gameControl;
     private static GameCtrlUI gameCtrlUI;
     private static GameCtrlHelper gameCtrlHelper;
+	private static Clickstart start;
 
     [SerializeField]
     private bool allStatic = false;
@@ -242,6 +243,9 @@ public class GraphController : MonoBehaviour {
         debugObjects.Clear();
     }
 
+
+
+
     private GameObject InstObj(Vector3 createPos)
     {
         if (gameControl.EngineBulletUnity)
@@ -332,8 +336,8 @@ public class GraphController : MonoBehaviour {
         if (nodeCreated != null)
         {
             Node nodeNode = nodeCreated.GetComponent<Node>();
-            nodeNode.name = id;
-            nodeNode.Text = name;
+            nodeNode.name = name; //was originally id
+			nodeNode.Text = name;
             nodeNode.Type = type;
 
             nodeCount++;
