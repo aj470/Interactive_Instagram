@@ -2,66 +2,66 @@
 
 public abstract class Node : MonoBehaviour
 {
-    [SerializeField]
-    protected static bool verbose = true;
+	[SerializeField]
+	protected static bool verbose = true;
 
-    protected static GraphController graphControl;
+	protected static GraphController graphControl;
 
-    private string id;
-    private string text;
-    private string type;
+	private string id;
+	public string textname;
+	private string type;
 
-    public string Id
-    {
-        get
-        {
-            return id;
-        }
-        set
-        {
-            id = value;
-        }
-    }
+	public string Id
+	{
+		get
+		{
+			return id;
+		}
+		set
+		{
+			id = value;
+		}
+	}
 
-    public string Text
-    {
-        get
-        {
-            return text;
-        }
-        set
-        {
-            text = value;
-        }
-    }
+	public string TextName
+	{
+		get
+		{
+			return textname;
+		}
+		set
+		{
+			textname = value;
+		}
+	}
 
-    public string Type
-    {
-        get
-        {
-            return type;
-        }
-        set
-        {
-            type = value;
-        }
-    }
+	public string Type
+	{
+		get
+		{
+			return type;
+		}
+		set
+		{
+			type = value;
+		}
+	}
 
-    protected abstract void doGravity();
+	protected abstract void doGravity();
 
-    protected abstract void doRepulse();
+	protected abstract void doRepulse();
 
-    protected virtual void Start()
-    {
-        graphControl = FindObjectOfType<GraphController>();
-    }
+	protected virtual void Start()
+	{
+		graphControl = FindObjectOfType<GraphController>();
+	}
 
-    void FixedUpdate()
-    {
-        if (!graphControl.AllStatic && graphControl.RepulseActive)
-            doRepulse();
+	void FixedUpdate()
+	{
+		if (!graphControl.AllStatic && graphControl.RepulseActive)
+			doRepulse();
 
-        if (!graphControl.AllStatic)
-            doGravity();
-    }
+		if (!graphControl.AllStatic)
+			doGravity();
+	}
 }

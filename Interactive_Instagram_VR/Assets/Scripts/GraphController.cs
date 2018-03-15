@@ -336,8 +336,8 @@ public class GraphController : MonoBehaviour {
         if (nodeCreated != null)
         {
             Node nodeNode = nodeCreated.GetComponent<Node>();
-            nodeNode.name = name; //was originally id
-			nodeNode.Text = name;
+            nodeNode.name = id;
+			nodeNode.TextName = name;
             nodeNode.Type = type;
 
             nodeCount++;

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class Clickstart : MonoBehaviour {
 
 	//public string myString;
@@ -12,11 +11,13 @@ public class Clickstart : MonoBehaviour {
 	public bool displayInfo;
 
 
+
+
 	void Start () {
-		
+		Node nodeobject = this.GetComponent<Node>();
 		//GameObject loadButton = GameObject.Find("Btn_Load");
 		//GameCtrlInputReader textReader = loadButton.GetComponent<GameCtrlInputReader>();
-		myText.text ="" + this.name.ToString();
+		myText.text ="" + nodeobject.TextName.ToString();
 		//myText = GameObject.Find ("message").GetComponent<Text> ();
 		//myText.color = Color.blue;
 		//Screen.showCursor = false;
