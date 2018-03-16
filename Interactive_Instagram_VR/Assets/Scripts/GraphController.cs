@@ -458,69 +458,13 @@ public class GraphController : MonoBehaviour {
 
     public void GenNodes(int count)
     {
-		string[] lines = System.IO.File.ReadAllLines(@"/Users/sanjitsingh/Desktop/HelloWorld.txt");
-		//chromo_typ[] Population = new chromo_typ[AlgorithmParameters.pop_size];
-		int temporary = 0;
-		float [] x = new float[count];		
-		float [] y = new float[count];			
-		float [] z = new float[count];	
-
-	
-		// Display the file contents by using a foreach loop.
- 		foreach (string line in lines) {
-			if (temporary == count-1) {
-				break;
-			} 
-
-			// Use a tab to indent each line of the file.
-			//Debug.Log ("\t" + line);
-			string[] substrings = line.Split ('#');
-			//Debug.Log ("/t" + substrings[0]);
-			//Debug.Log (substrings);
-
-			x [temporary] = float.Parse(substrings [0]);
-			y [temporary] = float.Parse(substrings [1]);
-			z [temporary] = float.Parse(substrings [2]);
-			temporary =+ 1;
-
-				
-		}
-		Debug.Log (x);
-		Debug.Log (y);
-		Debug.Log (z);
-
+		
         for (int i = 0; i < count; i++)
         {
 			
             // Create a node on random Coordinates
-           // GenerateNode();
-				GameObject nodeCreated = null;
-
-			Vector3 createPos = new Vector3(x[i], y[i] , z[i] );
-
-
-				nodeCreated = InstObj(createPos);
-
-				if (nodeCreated != null)
-				{
-					nodeCreated.name = "node_" + nodeCount;
-					nodeCount++;
-					gameCtrlUI.PanelStatusNodeCountTxt.text = "Nodecount: " + NodeCount;
-
-					GameObject debugObj = nodeCreated.transform.Find("debugRepulseObj").gameObject;
-					debugObjects.Add(debugObj);
-					debugObj.SetActive(false);
-
-					if (verbose)
-						Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Node created: " + nodeCreated.gameObject.name);
-
-				} else
-				{
-					if (verbose)
-						Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, did not get a Node Object returned.");
-				}
-
-				 
+            GenerateNode();
+		
         }
     }
 	

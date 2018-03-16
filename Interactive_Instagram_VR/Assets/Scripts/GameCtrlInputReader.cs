@@ -82,32 +82,50 @@ public class GameCtrlInputReader : MonoBehaviour {
 				if (xmlNode.Name == "node" && myNodeCount<1000)
                 {
                     myNodeCount++;
-                    nodesList.Add(new nodeListObj
-                    {
+                    /*nodesList.Add(new nodeListObj
+                    //{
                         id = xmlNode.Attributes["id"].Value,
                         name = xmlNode.Attributes["name"].Value,
                         type = xmlNode.Attributes["type"].Value,
                         x = float.Parse(xmlNode.Attributes["x"].Value),
                         y = float.Parse(xmlNode.Attributes["y"].Value),
                         z = float.Parse(xmlNode.Attributes["z"].Value)
-                    });
+                    });*/
+					nodeListObj nn = new nodeListObj
+					{
+						id = xmlNode.Attributes["id"].Value,
+						name = xmlNode.Attributes["name"].Value,
+						type = xmlNode.Attributes["type"].Value,
+						x = float.Parse(xmlNode.Attributes["x"].Value),
+						y = float.Parse(xmlNode.Attributes["y"].Value),
+						z = float.Parse(xmlNode.Attributes["z"].Value)
+					};
+					graphControl.GenerateNode(nn.x, nn.y, nn.z,nn.name, nn.id, nn.type);
                 }
 
                 //create links
-				if (xmlNode.Name == "edge" && myLinkCount < 10000)
+				if (xmlNode.Name == "edge" && myLinkCount < 1000)
                 {
                     myLinkCount++;
-                    linksList.Add(new linkListObj
+                    /*linksList.Add(new linkListObj
                     {
                         id = xmlNode.Attributes["id"].Value,
                         name = xmlNode.Attributes["label"].Value,
                         source = xmlNode.Attributes["source"].Value,
                         target = xmlNode.Attributes["target"].Value
-                    });
+                    });*/
+					linkListObj link = new linkListObj
+						{
+							id = xmlNode.Attributes["id"].Value,
+							name = xmlNode.Attributes["label"].Value,
+							source = xmlNode.Attributes["source"].Value,
+							target = xmlNode.Attributes["target"].Value
+						};
+					graphControl.GenerateLink("specific_src_tgt", GameObject.Find(link.source), GameObject.Find(link.target));
                 }
 
                 //every 100 cycles return control to unity
-                if (j % 100 == 0)
+                if (j % 10 == 0)
                     yield return true;
             }
         }
