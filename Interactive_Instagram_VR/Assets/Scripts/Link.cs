@@ -67,7 +67,7 @@ public class Link : MonoBehaviour
         //draw line
         lineRenderer.material = new Material(Shader.Find("Self-Illumin/Diffuse"));
         lineRenderer.material.SetColor("_Color", c);
-        lineRenderer.SetWidth(0.3f, 0.3f);
+        lineRenderer.SetWidth(0.05f, 0.05f);
         lineRenderer.SetVertexCount(2);
         lineRenderer.SetPosition(0, source.transform.position);
         lineRenderer.SetPosition(1, target.transform.position);

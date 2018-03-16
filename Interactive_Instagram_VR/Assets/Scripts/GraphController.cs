@@ -322,13 +322,14 @@ public class GraphController : MonoBehaviour {
         return nodeCreated.gameObject;
     }
 
-    public GameObject GenerateNode(string name, string id, string type)
+    public GameObject GenerateNode(float x, float y, float z, string name, string id, string type)
     {
         // Method for creating a Node on random coordinates, but with defined labels. E.g. when loaded from a file which contains these label.
 
         GameObject nodeCreated = null;
 
-        Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
+      //  Vector3 createPos = new Vector3(UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange), UnityEngine.Random.Range(0, nodeVectorGenRange));
+		Vector3 createPos = new Vector3(x, y, z);
 
         //nodeCreated = Instantiate(nodePrefabBullet, createPos, Quaternion.identity) as Node;
         nodeCreated = InstObj(createPos);

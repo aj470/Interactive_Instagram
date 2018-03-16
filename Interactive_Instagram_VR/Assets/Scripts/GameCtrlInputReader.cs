@@ -122,7 +122,7 @@ public class GameCtrlInputReader : MonoBehaviour {
         foreach (nodeListObj genNode in nodesList)
         {
             // Create a node on random Coordinates, but with labels
-            graphControl.GenerateNode(genNode.name, genNode.id, genNode.type);
+			graphControl.GenerateNode(genNode.x, genNode.y, genNode.z,genNode.name, genNode.id, genNode.type);
         }
 
         foreach (linkListObj genLink in linksList)
