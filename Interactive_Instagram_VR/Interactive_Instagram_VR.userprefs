@@ -1,12 +1,8 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Clickstart.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameCtrlInputReader.cs">
     <Files>
-      <File FileName="Assets\Scripts\GraphController.cs" Line="21" Column="10" />
-      <File FileName="Assets\Scripts\GameCtrlInputReader.cs" Line="111" Column="51" />
-      <File FileName="Assets\Standard Assets\Editor\ImageEffects\TonemappingEditor.cs" Line="45" Column="32" />
-      <File FileName="Assets\Scripts\CameraControlZeroG.cs" Line="77" Column="1" />
-      <File FileName="Assets\Clickstart.cs" Line="28" Column="3" />
+      <File FileName="Assets/Scripts/GameCtrlInputReader.cs" Line="14" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
