@@ -37,7 +37,7 @@ Controls:
 <br>
 Licensing:
 
-This project was heavily inspired by user Bamfax, and his project https://github.com/Bamfax/ForceDirectedNodeGraph3DUnity
+This project uses the initial code of Bamfax's repository, hosted at https://github.com/Bamfax/ForceDirectedNodeGraph3DUnity
 
 As such, the following also apply to our project:
 
@@ -59,8 +59,6 @@ To-DOs:
 <br>
 Authors:
 
-[aj470](https://github.com/aj470)
-
-[scarletknight11](https://github.com/scarletknight11) 
-
+[aj470](https://github.com/aj470), 
+[scarletknight11](https://github.com/scarletknight11),
 [alexjjia](https://github.com/alexjjia)
