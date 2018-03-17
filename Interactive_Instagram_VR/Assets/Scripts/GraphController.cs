@@ -357,7 +357,7 @@ public class GraphController : MonoBehaviour {
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Something went wrong, no node created.");
         }
 
-        return nodeCreated.gameObject;
+        return nodeCreated.gameObject; //returns a gameobject
     }
 
     public bool CreateLink(GameObject source, GameObject target)

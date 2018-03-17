@@ -9,9 +9,11 @@ public class GameCtrlInputReader : MonoBehaviour {
     [SerializeField]
     private bool verbose = true;
 
-    private static GraphController graphControl;
+	 private static GraphController graphControl;
     private static GameCtrlUI gameCtrlUI;
 
+	//used to store the collection of Node GameObjects with their corresponding string source/target values.
+	Dictionary<string, GameObject> string_to_obj = new Dictionary<string, GameObject>{};
 
     public class nodeListObj
     {
@@ -100,11 +102,13 @@ public class GameCtrlInputReader : MonoBehaviour {
 						y = float.Parse(xmlNode.Attributes["y"].Value),
 						z = float.Parse(xmlNode.Attributes["z"].Value)
 					};
-					graphControl.GenerateNode(nn.x, nn.y, nn.z,nn.name, nn.id, nn.type);
+					string_to_obj.Add(nn.id,graphControl.GenerateNode(nn.x, nn.y, nn.z,nn.name, nn.id, nn.type));
+					//store in dictionary
+
                 }
 
                 //create links
-				if (xmlNode.Name == "edge" && myLinkCount < 1000)
+				if (xmlNode.Name == "edge" && myLinkCount < 13000)
                 {
                     myLinkCount++;
                     /*linksList.Add(new linkListObj
@@ -121,7 +125,16 @@ public class GameCtrlInputReader : MonoBehaviour {
 							source = xmlNode.Attributes["source"].Value,
 							target = xmlNode.Attributes["target"].Value
 						};
-					graphControl.GenerateLink("specific_src_tgt", GameObject.Find(link.source), GameObject.Find(link.target));
+					GameObject val_1;
+					GameObject val_2;
+
+					string_to_obj.TryGetValue (link.source, out val_1);
+					string_to_obj.TryGetValue (link.target, out val_2);
+
+					graphControl.GenerateLink("specific_src_tgt", val_1, val_2); //LAG IS FROM HERE. 
+
+						
+					//Utilize a dictionary to store all nodes, and then call from it.
                 }
 
                 //every 100 cycles return control to unity
