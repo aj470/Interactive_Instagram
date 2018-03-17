@@ -9,6 +9,7 @@ This project is composed of two directories - Instagram_Network_Visualization, a
 
 <br>
 Featuring:
+
 - Multidimensional network visualizations of users within your immediate network.
 - Username toggling on hover.
 
@@ -22,17 +23,20 @@ XML File Generation:
 
 <br>
 How to Run:
+
 - Click Play to initialize the environment
 - Select 'Load File'
 - Load the XML file containing the graph (i.e throughshutter.xml)
 
 <br>
 Controls:
+
 - Movement: WASD keys
 - Rotation: Up/Down/Left/Right Arrow keys
 
 <br>
 Licensing:
+
 This project was heavily inspired by user Bamfax, and his project https://github.com/Bamfax/ForceDirectedNodeGraph3DUnity
 
 As such, the following also apply to our project:
@@ -47,10 +51,16 @@ As such, the following also apply to our project:
 
 <br>
 To-DOs:
+
 - Implement inbuilt photo feed for each node.
 - Add computational heuristics for more varied graph visualizations.
 - Polishes.
 
 <br>
 Authors:
-aj470, scarletknight11, ajj64
+
+[aj470](https://github.com/aj470)
+
+[scarletknight11](https://github.com/scarletknight11) 
+
+[alexjjia](https://github.com/alexjjia)
