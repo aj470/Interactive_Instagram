@@ -52,6 +52,7 @@ As such, the following also apply to our project:
 <br>
 To-DOs:
 
+- Load links dynamically (i.e only load links between selected/visible nodes on hover) //which will also help in optimizing node computation
 - Implement inbuilt photo feed for each node.
 - Add computational heuristics for more varied graph visualizations.
 - Polishes.
