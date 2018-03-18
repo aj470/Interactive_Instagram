@@ -9,11 +9,13 @@ public class Clickstart : MonoBehaviour {
 	public Color color;
 	public Text myText;
 	public bool displayInfo;
-
-
-
+	Dictionary<GameObject, List<GameObject>> all_links_input = new Dictionary<GameObject, List<GameObject>>{};
+	public GraphController graphControl_link;
+	public bool linked = false;
 
 	void Start () {
+		
+
 		Node nodeobject = this.GetComponent<Node>();
 		//GameObject loadButton = GameObject.Find("Btn_Load");
 		//GameCtrlInputReader textReader = loadButton.GetComponent<GameCtrlInputReader>();
@@ -22,12 +24,21 @@ public class Clickstart : MonoBehaviour {
 		//myText.color = Color.blue;
 		//Screen.showCursor = false;
 		//Screen.lockCursor = true;
+		all_links_input = GameCtrlInputReader.all_links;
+		graphControl_link = GameCtrlInputReader.graphControl;
+		Debug.Log ("The size"+ all_links_input.Count);
 	}
 
 	public void OnMouseEnter()
 	{
-		gameObject.GetComponent<Renderer> ().material.color = color;
-		displayInfo = true;
+		
+			gameObject.GetComponent<Renderer> ().material.color = color;
+			myText.enabled = true;
+			Debug.Log (myText.text);
+		if (!linked) {
+			link ();
+		}
+
 		//Debug.Log ("myText is: " + myText.enabled);
 	}
 
@@ -38,16 +49,36 @@ public class Clickstart : MonoBehaviour {
 
 	}
 
+	void link(){
+		linked = true;
+
+		List<GameObject> li = new List<GameObject> (){ };
+		bool success = all_links_input.TryGetValue (gameObject, out li);
+		if (success) {
+
+			displayInfo = true;
+			Debug.Log (li.Count);
+			foreach (GameObject obj in li) {
+				Debug.Log ("I am here");
+				Debug.Log (obj);
+				Debug.Log (this.gameObject);
+				Debug.Log (this.GetComponent<GraphController> ());
+
+				graphControl_link.GenerateLink ("specific_src_tgt", gameObject, obj); //LAG IS FROM HERE.
+			}
+		}
+	}
+
 	void Update()
 	{
 		if (displayInfo) {
-			myText.enabled = true;
-			Debug.Log (myText.text);
+			
+				myText.enabled = true;
+				Debug.Log (myText.text);
 		}
-		if (!displayInfo) {
-			myText.enabled = false;
-		}
-
+			if (!displayInfo) {
+				myText.enabled = false;
+			}
+				
 	}
-
 }

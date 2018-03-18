@@ -9,11 +9,14 @@ public class GameCtrlInputReader : MonoBehaviour {
     [SerializeField]
     private bool verbose = true;
 
-	 private static GraphController graphControl;
+	public static GraphController graphControl;
     private static GameCtrlUI gameCtrlUI;
 
 	//used to store the collection of Node GameObjects with their corresponding string source/target values.
-	Dictionary<string, GameObject> string_to_obj = new Dictionary<string, GameObject>{};
+
+	public Dictionary<string, GameObject> string_to_obj = new Dictionary<string, GameObject>{};
+
+	public static Dictionary<GameObject, List<GameObject>> all_links = new Dictionary<GameObject, List<GameObject>>{};
 
     public class nodeListObj
     {
@@ -108,9 +111,12 @@ public class GameCtrlInputReader : MonoBehaviour {
                 }
 
                 //create links
-				if (xmlNode.Name == "edge" && myLinkCount < 13000)
+				if (xmlNode.Name == "edge")
                 {
-                    myLinkCount++;
+					if (myLinkCount == 2000)
+						break;
+						
+					myLinkCount++;
                     /*linksList.Add(new linkListObj
                     {
                         id = xmlNode.Attributes["id"].Value,
@@ -131,10 +137,23 @@ public class GameCtrlInputReader : MonoBehaviour {
 					string_to_obj.TryGetValue (link.source, out val_1);
 					string_to_obj.TryGetValue (link.target, out val_2);
 
-					graphControl.GenerateLink("specific_src_tgt", val_1, val_2); //LAG IS FROM HERE. 
+					List<GameObject> li;
+					//graphControl.GenerateLink("specific_src_tgt", val_1, val_2); //LAG IS FROM HERE. 
+					bool success = all_links.TryGetValue (val_1, out li);
+					if (success) {
+						li.Add (val_2);
+						all_links.Remove (val_1);
+						all_links.Add(val_1, li);
+					} 
+					else 
+					{
+						List<GameObject> new_li = new List<GameObject>();
+						new_li.Add (val_2);
+						all_links.Add(val_1, new_li);
+					}
 
-						
 					//Utilize a dictionary to store all nodes, and then call from it.
+
                 }
 
                 //every 100 cycles return control to unity
@@ -150,7 +169,7 @@ public class GameCtrlInputReader : MonoBehaviour {
 
         gameCtrlUI.PanelStatusText.text = "Generating graph...";
 
-        foreach (nodeListObj genNode in nodesList)
+        /*foreach (nodeListObj genNode in nodesList)
         {
             // Create a node on random Coordinates, but with labels
 			graphControl.GenerateNode(genNode.x, genNode.y, genNode.z,genNode.name, genNode.id, genNode.type);
@@ -160,8 +179,10 @@ public class GameCtrlInputReader : MonoBehaviour {
         {
             graphControl.GenerateLink("specific_src_tgt", GameObject.Find(genLink.source), GameObject.Find(genLink.target));
         }
-
+		*/
         gameCtrlUI.PanelStatusText.text = "Graph done.";
+		gameCtrlUI.PanelStatusText.text = all_links.Count.ToString();
+
     }
 
     public void LoadandGenWorld()
