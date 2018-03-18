@@ -12,6 +12,7 @@ Featuring:
 
 - Multidimensional network visualizations of users within your immediate network.
 - Username toggling on hover.
+- See the Linked users on hover.
 
 
 <br>
