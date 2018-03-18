@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Angle))]
 [RequireComponent(typeof(GameCtrlUI))]
 [RequireComponent(typeof(GameCtrlHID))]
 [RequireComponent(typeof(GameCtrlHelper))]

@@ -31,22 +31,24 @@ public class Clickstart : MonoBehaviour {
 
 	public void OnMouseEnter()
 	{
-		
+		if (GameCtrlInputReader.done) {
 			gameObject.GetComponent<Renderer> ().material.color = color;
-			myText.enabled = true;
+		//	myText.enabled = true;
 			Debug.Log (myText.text);
-		if (!linked) {
-			link ();
+			displayInfo = true;
+			if (!linked) {
+				link ();
+			}
 		}
-
 		//Debug.Log ("myText is: " + myText.enabled);
 	}
 
 	void OnMouseExit()
 	{
-		gameObject.GetComponent<Renderer> ().material.color = Color.green;
-		displayInfo = false;
-
+		if (GameCtrlInputReader.done) {
+			gameObject.GetComponent<Renderer> ().material.color = Color.green;
+			displayInfo = false;
+		}
 	}
 
 	void link(){
@@ -56,7 +58,7 @@ public class Clickstart : MonoBehaviour {
 		bool success = all_links_input.TryGetValue (gameObject, out li);
 		if (success) {
 
-			displayInfo = true;
+
 			Debug.Log (li.Count);
 			foreach (GameObject obj in li) {
 				Debug.Log ("I am here");

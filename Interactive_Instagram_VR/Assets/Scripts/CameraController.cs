@@ -12,20 +12,17 @@ public class CameraController : MonoBehaviour {
 	bool moving = false;
 
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
+	 
 	// Update is called once per frame
-	void Update () {
-		if (Input.GetMouseButton (0)) 
-		{
-			SetTargetPosition();
+	void Update ()
+	{
+		if (Input.GetMouseButton (0)) {
+			SetTargetPosition ();
 		}
-		if(moving)
-			Move();
+		if (moving)
+			Move ();
 	}
+
 	void SetTargetPosition()
 	{
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -33,7 +30,8 @@ public class CameraController : MonoBehaviour {
 
 		if (Physics.Raycast (ray, out hit, 1000)) 
 		{
-			Vector3 newhit = new Vector3(hit.point.x,hit.point.y, hit.point.z - 10 );
+			Vector3 newhit = new Vector3(hit.point.x,hit.point.y, hit.point.z - 2 );
+ 
 			targetPosition = newhit;
 			//this.transform.LookAt (targetPosition);
 			lookAtTarget = new Vector3 (targetPosition.x - transform.position.x,
@@ -42,9 +40,8 @@ public class CameraController : MonoBehaviour {
 			playerRot = Quaternion.LookRotation (lookAtTarget);
 			moving = true;
 		}
-
-
 	}
+
 
 	void Move()
 	{
@@ -52,10 +49,11 @@ public class CameraController : MonoBehaviour {
 									playerRot,
 									rotSpeed * Time.deltaTime);
 		transform.position = Vector3.MoveTowards(transform.position,
-									 			targetPosition,
-												speed * Time.deltaTime); 
-		if (transform.position == targetPosition)
+									targetPosition,
+									speed * Time.deltaTime); 
+		if (transform.position == targetPosition) {
 			 
 			moving = false;
+		}
 	}
 }

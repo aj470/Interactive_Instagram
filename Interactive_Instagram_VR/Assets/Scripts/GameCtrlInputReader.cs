@@ -11,7 +11,7 @@ public class GameCtrlInputReader : MonoBehaviour {
 
 	public static GraphController graphControl;
     private static GameCtrlUI gameCtrlUI;
-
+	public static bool done = false;
 	//used to store the collection of Node GameObjects with their corresponding string source/target values.
 
 	public Dictionary<string, GameObject> string_to_obj = new Dictionary<string, GameObject>{};
@@ -182,7 +182,7 @@ public class GameCtrlInputReader : MonoBehaviour {
 		*/
         gameCtrlUI.PanelStatusText.text = "Graph done.";
 		gameCtrlUI.PanelStatusText.text = all_links.Count.ToString();
-
+		done = true;
     }
 
     public void LoadandGenWorld()

@@ -1,12 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactShape.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Angle.cs">
     <Files>
-      <File FileName="Assets\Scripts\GraphController.cs" Line="6" Column="29" />
-      <File FileName="Assets\Scripts\GameCtrlInputReader.cs" Line="202" Column="9" />
-      <File FileName="Assets\Plugins\BulletUnity\BulletSharp\Collision\GImpact\GImpactShape.cs" Line="628" Column="28" />
-      <File FileName="Assets\Scripts\Link.cs" Line="24" Column="22" />
-      <File FileName="Assets\Clickstart.cs" Line="29" Column="49" />
+      <File FileName="Assets/Scripts/CameraController.cs" Line="33" Column="36" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="3" Column="1" />
+      <File FileName="Assets/Scripts/Angle.cs" Line="14" Column="73" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
