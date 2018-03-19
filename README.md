@@ -12,7 +12,9 @@ Featuring:
 
 - Multidimensional network visualizations of users within your immediate network.
 - Username toggling on hover.
-- See the Linked users on hover.
+- See the Linked when hover on the node and Lock the links after 50 frames.
+- click to move to the node.
+- wide angle view.
 
 
 <br>
@@ -53,7 +55,7 @@ As such, the following also apply to our project:
 <br>
 To-DOs:
 
-- Load links dynamically (i.e only load links between selected/visible nodes on hover) //which will also help in optimizing node computation
+- Add link click to navigate.
 - Implement inbuilt photo feed for each node.
 - Add computational heuristics for more varied graph visualizations.
 - Polishes.
