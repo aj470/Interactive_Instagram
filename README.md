@@ -1,6 +1,9 @@
 # Interactive_Instagram
 An WIP interactive 3D visualization of Instagram networks
 
+<br>
+Problem Statement: In the most social media plateforms the news feed consisting of posts is linear and often is a timeline form except when algorithms prioritizing certain posts/content based on your past interaction. Here we have tried to build an environement where you can visualize your full network at once and navigate through it in your on ways. We also tried to apply simple heuristics to organize the network. One of the reasons we chose instagram is because it only has the content of the people/pages that you are following and the nature of conent is either photos or videos.
+
 This project is composed of two directories - Instagram_Network_Visualization, and Interactive_Instagram_VR. The former contains the neccessary scripts to generate the neccessary XML file, which is a network consisting of users that you are following on Instagram (and possibly more), and the latter actually generates said network from the XML, as seen below
 
 ![Interactive Instagram Simulation](https://github.com/aj470/Interactive_Instagram/blob/master/Interactive_Instagram_VR/visuals/network.gif)
@@ -55,9 +58,9 @@ As such, the following also apply to our project:
 <br>
 To-DOs:
 
+- Add computational heuristics and algorithms for more varied graph visualizations.
 - Add link click to navigate.
 - Implement inbuilt photo feed for each node.
-- Add computational heuristics for more varied graph visualizations.
 - Polishes.
 
 <br>
