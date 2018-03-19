@@ -360,7 +360,7 @@ public class GraphController : MonoBehaviour {
         return nodeCreated.gameObject; //returns a gameobject
     }
 
-    public bool CreateLink(GameObject source, GameObject target)
+	public Link CreateLink(GameObject source, GameObject target)
     {
         if (source == null || target == null)
         {
@@ -368,7 +368,7 @@ public class GraphController : MonoBehaviour {
             {
                 Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source or target does not exist. Link not created.");
             }
-            return false;
+			return null;
         }
         else
         {
@@ -394,7 +394,7 @@ public class GraphController : MonoBehaviour {
                     linkCount++;
                     gameCtrlUI.PanelStatusLinkCountTxt.text = "Linkcount: " + LinkCount;
 
-                    return true;
+					return linkObject;
                 }
                 else
                 {
@@ -402,7 +402,7 @@ public class GraphController : MonoBehaviour {
                     {
                         Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Link between source " + source.name + " and target " + target.name + " already exists. Link not created.");
                     }
-                    return false;
+                    return null;
                 }
             }
             else
@@ -411,49 +411,52 @@ public class GraphController : MonoBehaviour {
                 {
                     Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": source " + source.name + " and target " + target.name + " are the same. Link not created.");
                 }
-                return false;
+                return null;
             }
         }
     }
+//
+//    public void GenerateLink(string mode)
+//    {
+//        if (mode == "random")
+//        {
+//            bool success = false;
+//            int tryCounter = 0;
+//            int tryLimit = nodeCount * 5;
+//
+//            while (!success && tryCounter < tryLimit)
+//            {
+//                tryCounter++;
+//
+//                int sourceRnd = UnityEngine.Random.Range(0, nodeCount);
+//                int targetRnd = UnityEngine.Random.Range(0, nodeCount);
+//
+//                GameObject source = GameObject.Find("node_" + sourceRnd);
+//                GameObject target = GameObject.Find("node_" + targetRnd);
+//
+//                success = CreateLink(source, target);
+//            }
+//            if (!success)
+//                if (verbose)
+//                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Too many unsuccessful tries, limit reached. Bailing out of GenerateLink run with mode=random. TryCounter: " + tryCounter + " Limit: " + nodeCount * 5);
+//        }
+//    }
 
-    public void GenerateLink(string mode)
+    public Link GenerateLink(string mode, GameObject source, GameObject target)
     {
-        if (mode == "random")
-        {
-            bool success = false;
-            int tryCounter = 0;
-            int tryLimit = nodeCount * 5;
+		Link success = null;
+		if (mode == "specific_src_tgt") {
 
-            while (!success && tryCounter < tryLimit)
-            {
-                tryCounter++;
+			success = CreateLink (source, target);
 
-                int sourceRnd = UnityEngine.Random.Range(0, nodeCount);
-                int targetRnd = UnityEngine.Random.Range(0, nodeCount);
-
-                GameObject source = GameObject.Find("node_" + sourceRnd);
-                GameObject target = GameObject.Find("node_" + targetRnd);
-
-                success = CreateLink(source, target);
-            }
-            if (!success)
-                if (verbose)
-                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Too many unsuccessful tries, limit reached. Bailing out of GenerateLink run with mode=random. TryCounter: " + tryCounter + " Limit: " + nodeCount * 5);
-        }
-    }
-
-    public void GenerateLink(string mode, GameObject source, GameObject target)
-    {
-        if (mode == "specific_src_tgt")
-        {
-            bool success = false;
-
-            success = CreateLink(source, target);
-
-            if (!success)
-                if (verbose)
-                    Debug.Log(this.GetType().Name + "." + System.Reflection.MethodBase.GetCurrentMethod().Name + ": Problem with creating link. Link not created.");
-        }
+			if (success == null) {
+				if (verbose)
+					Debug.Log (this.GetType ().Name + "." + System.Reflection.MethodBase.GetCurrentMethod ().Name + ": Problem with creating link. Link not created.");
+				return null;
+			}
+			return success;
+		}
+		return success;
     }
 
     public void GenNodes(int count)
@@ -469,14 +472,14 @@ public class GraphController : MonoBehaviour {
     }
 	
 
-    public void GenLinks(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            // Create a link on random Coordinates
-            GenerateLink("random");
-        }
-    }
+//    public void GenLinks(int count)
+//    {
+//        for (int i = 0; i < count; i++)
+//        {
+//            // Create a link on random Coordinates
+//            GenerateLink("random");
+//        }
+//    }
 
     void Start()
     {

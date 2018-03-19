@@ -12,7 +12,8 @@ public class Angle : MonoBehaviour {
  
 	void Start() {
 
-		camoriginposition = Camera.main.transform.position;
+		//camoriginposition = Camera.main.transform.position;
+		camoriginposition = new Vector3(0.0f,0.0f,-150.0f);
  	}
 
 	//When I press Wide Angle Position  resets to default X,Y,Z Coordinates

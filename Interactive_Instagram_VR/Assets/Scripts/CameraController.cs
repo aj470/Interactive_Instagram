@@ -12,15 +12,16 @@ public class CameraController : MonoBehaviour {
 	bool moving = false;
 
 
+
 	 
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetMouseButton (0)) {
-			SetTargetPosition ();
-		}
-		if (moving)
-			Move ();
+			if (Input.GetMouseButton (0)) {
+				SetTargetPosition ();
+			}
+			if (moving)
+				Move ();
 	}
 
 	void SetTargetPosition()
@@ -56,4 +57,6 @@ public class CameraController : MonoBehaviour {
 			moving = false;
 		}
 	}
+
+
 }

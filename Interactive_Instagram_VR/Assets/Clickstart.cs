@@ -12,7 +12,9 @@ public class Clickstart : MonoBehaviour {
 	Dictionary<GameObject, List<GameObject>> all_links_input = new Dictionary<GameObject, List<GameObject>>{};
 	public GraphController graphControl_link;
 	public bool linked = false;
-
+	List <Link> links = new List<Link>();
+	int count;
+	public bool destroy = true;
 	void Start () {
 		
 
@@ -31,6 +33,7 @@ public class Clickstart : MonoBehaviour {
 
 	public void OnMouseEnter()
 	{
+		count = 0;
 		if (GameCtrlInputReader.done) {
 			gameObject.GetComponent<Renderer> ().material.color = color;
 		//	myText.enabled = true;
@@ -45,9 +48,23 @@ public class Clickstart : MonoBehaviour {
 
 	void OnMouseExit()
 	{
+		linked =false;
 		if (GameCtrlInputReader.done) {
 			gameObject.GetComponent<Renderer> ().material.color = Color.green;
 			displayInfo = false;
+			if (links.Count > 0 && count <50 && destroy) {
+				destroy = false;
+				foreach (Link li in links) {
+					try
+					{
+						Destroy (li.gameObject);
+					}
+					catch{
+						continue;
+					}
+
+				}
+			}
 		}
 	}
 
@@ -66,13 +83,17 @@ public class Clickstart : MonoBehaviour {
 				Debug.Log (this.gameObject);
 				Debug.Log (this.GetComponent<GraphController> ());
 
-				graphControl_link.GenerateLink ("specific_src_tgt", gameObject, obj); //LAG IS FROM HERE.
+
+				Link o = graphControl_link.GenerateLink ("specific_src_tgt", gameObject, obj); //LAG IS FROM HERE.
+				if(o != null)
+				links.Add(o);
 			}
 		}
 	}
 
 	void Update()
 	{
+		count = count + 1;
 		if (displayInfo) {
 			
 				myText.enabled = true;
